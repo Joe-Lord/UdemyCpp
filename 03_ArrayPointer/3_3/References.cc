@@ -1,9 +1,11 @@
 #include <iostream>
 
-void f1(int v)
+int f1(int v)
 {
+    v *= 2;
     std::cout << "f1: " << v << '\n';
     std::cout << &v << '\n';
+    return v;
 }
 
 void f2(int *const v)
@@ -26,6 +28,9 @@ int main()
     f1(a);
     f2(&a);
     f3(a);
+
+    int test = f1(a);
+    std::cout << test << '\n';
 
     return 0;
 }

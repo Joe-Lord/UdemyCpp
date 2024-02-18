@@ -3,43 +3,29 @@
 
 #include "exercise.h"
 
+
+std::int32_t *array_constructor(const std::int32_t value,
+                                const std::size_t length)
+{
+    auto *p = new int[length];
+    for (int i = 0; i < length; i++)
+    {
+        p[i] = value;
+
+    }
+
+    return p;
+}
+
+
 int main()
 {
-    // Exercise 1
-    auto array_length = std::size_t{100};
-    auto sum = 0.0;
+    int value = 7;
+    int length = 4;
+    auto *array = array_constructor(value, length);
 
-    auto *array1 = new double[array_length];
-
-    for (std::size_t i = 0; i < array_length; i++)
+    for (int i = 0; i < length; i++)
     {
-        array1[i] = i;
+    std::cout << "Array_Pos " << i << " ist:" << *array << std::endl;
     }
-
-    sum = array_sum(array1, array_length);
-    std::cout << "(Exercise 1) Array Sum = " << sum << '\n';
-    delete[] array1;
-    array1 = nullptr;
-
-    // Exercise 2
-    auto input_array_length = std::size_t{0};
-    auto input_array_value = std::int32_t{0};
-
-    std::cout << '\n' << "Enter the array length: " << '\n';
-    std::cin >> input_array_length;
-    std::cout << '\n' << "Enter the array value: " << '\n';
-    std::cin >> input_array_value;
-    std::cout << '\n';
-
-    auto *array2 = array_constructor(input_array_value, input_array_length);
-
-    for (std::size_t i = 0; i < input_array_length; i++)
-    {
-        std::cout << array2[i] << '\n';
-    }
-
-    delete[] array2;
-    array2 = nullptr;
-
-    return 0;
 }
