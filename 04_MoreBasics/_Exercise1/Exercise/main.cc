@@ -19,6 +19,9 @@ int main()
     std::cout << "Mean Array B: " << mean_array_b << '\n';
 
     // Exercise 2
+
+    computation::declaration();
+
     computation::Dataset data{mean_array_a, mean_array_b};
     std::cout << data.mean_array_a << '\n';
     std::cout << data.mean_array_b << '\n';

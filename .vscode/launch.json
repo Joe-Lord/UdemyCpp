@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Programmieren/UdemyCpp_eigen_GitHub/UdemyCpp-1/ComputerGame4/_Start",
-      "program": "c:/Programmieren/UdemyCpp_eigen_GitHub/UdemyCpp-1/ComputerGame4/_Start/build/Debug/outDebug",
+      "cwd": "c:/Programmieren/UdemyCpp_eigen_GitHub/UdemyCpp-1/ComputerGame5/_Start",
+      "program": "c:/Programmieren/UdemyCpp_eigen_GitHub/UdemyCpp-1/ComputerGame5/_Start/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -9,6 +9,9 @@ double mean_array_value(int *array, const std::size_t length);
 double mean_array_value(double *array, const std::size_t length);
 
 // Exercise 2
-struct Dataset;
+
+void declaration();
+
+
 
 } // namespace computation

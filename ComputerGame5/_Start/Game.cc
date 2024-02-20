@@ -5,27 +5,41 @@
 
 namespace
 {
-constexpr std::uint32_t LEN_X = 10U;
-constexpr std::uint32_t START = 0U;
-constexpr std::uint32_t GOAL = 9U;
+
+
+
+constexpr std::uint32_t LEN_X = 5;
+constexpr std::uint32_t LEN_Y = 5;
+
+constexpr Coordinate START ={.x=0, .y=0};
+constexpr Coordinate GOAL ={.x=LEN_X-1, .y=LEN_Y-1};
+
 constexpr char LEFT = 'a';
 constexpr char RIGHT = 'd';
+constexpr char UP = 'w';
+constexpr char DOWN = 's';
 }; // namespace
 
-bool is_finished(const std::uint32_t player)
+bool is_finished(const Coordinate player)
 {
-    return player == GOAL;
+    if(player.x == GOAL.x && player.y == GOAL.y){
+    return true;
+    }
+    else{
+        return false;
+    }
 }
 
-void print_game_state(const std::uint32_t player)
+void print_game_state(const Coordinate player)
 {
-    for (std::uint32_t i = START; i < LEN_X; i++)
+    for(std::uint32_t j = START.y; j < LEN_Y; j++){
+    for (std::uint32_t i = START.x; i < LEN_X; i++)
     {
-        if (i == player)
+        if (i == player.x && j == player.y)
         {
             std::cout << 'P';
         }
-        else if (i == GOAL || i == START)
+        else if ((i == GOAL.x && j == GOAL.y) || (i == START.x && j == START.y))
         {
             std::cout << '|';
         }
@@ -34,17 +48,29 @@ void print_game_state(const std::uint32_t player)
             std::cout << '.';
         }
     }
+    std::cout << '\n';
+}
 }
 
-void execute_move(std::uint32_t &player, const char move)
+
+
+void execute_move( Coordinate &player, const char move)
 {
-    if (LEFT == move && player > 0)
+    if (LEFT == move && player.x > 0)
     {
-        player--;
+        player.x--;
     }
-    else if (RIGHT == move && player < (LEN_X - 1))
+    else if (RIGHT == move && player.x < (LEN_X))
     {
-        player++;
+        player.x++;
+    }
+    else if (DOWN == move && player.y < (LEN_Y))
+    {
+        player.y++;
+        }
+    else if (UP == move && player.y > 0)
+    {
+        player.y--;
     }
     else
     {
@@ -54,7 +80,7 @@ void execute_move(std::uint32_t &player, const char move)
 
 void game()
 {
-    std::uint32_t player = START;
+    Coordinate player = START;
     char move;
 
     while (true)

@@ -19,6 +19,7 @@ void print_vehicle_data(const Vehicle &vehicle)
 {
     std::cout << "Vehicle ID: " << vehicle.id << '\n';
     std::cout << "Vehicle Velocity [kph]: " << vehicle.velocity << '\n';
+    std::cout << "Speicherplatz " << &vehicle << '\n';
 
     switch (vehicle.lane)
     {
@@ -46,8 +47,11 @@ void print_vehicle_data(const Vehicle &vehicle)
 
 void print_vehicle_data_pointer(const Vehicle *vehicle)
 {
+    std::cout << "Speicher: " << vehicle<< '\n';
+    std::cout << "Speicherplatz " << &vehicle << '\n';
     std::cout << "Vehicle ID: " << vehicle->id << '\n';
     std::cout << "Vehicle Velocity [kph]: " << vehicle->velocity << '\n';
+    std::cout << "Speicherplatz " << &vehicle << '\n';
 
     switch (vehicle->lane)
     {
@@ -76,6 +80,7 @@ void print_vehicle_data_pointer(const Vehicle *vehicle)
 int main()
 {
     Vehicle v1 = { .id=1, .velocity=100.0f, .lane=Lane::CENTER_LANE};
+
     print_vehicle_data(v1);
 
     print_vehicle_data_pointer(&v1);

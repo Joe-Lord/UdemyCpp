@@ -2,6 +2,7 @@
 
 #include "exercise.h"
 
+
 int main()
 {
     const auto p1 = PlayerData{.id = 0,

@@ -2,10 +2,17 @@
 
 #include <cstdint>
 
-bool is_finished(const std::uint32_t player);
+namespace
+{
+struct Coordinate{
+    std::uint32_t x;
+    std::uint32_t y;
+};
+}
+bool is_finished(const Coordinate player);
 
-void print_game_state(const std::uint32_t player);
+void print_game_state(const Coordinate player);
 
-void execute_move(std::uint32_t &player, const char move);
+void execute_move(Coordinate &player, const char move);
 
 void game();
