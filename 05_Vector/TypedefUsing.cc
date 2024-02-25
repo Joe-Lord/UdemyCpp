@@ -10,7 +10,7 @@ struct PlayerData
 // AllPlayerData
 
 // C-Approach
-// typedef std::vector<PlayerData> AllPlayerData;
+typedef std::vector<PlayerData> AllPlayerData;
 
 // C++-Approach
 using AllPlayerData = std::vector<PlayerData>;

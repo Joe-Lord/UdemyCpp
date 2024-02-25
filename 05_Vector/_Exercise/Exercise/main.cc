@@ -10,7 +10,7 @@ void printMatrix(const MatrixT &matrix)
     {
         for (std::size_t j = 0; j != matrix[i].size(); ++j)
         {
-            std::cout << "m[" << i << ", " << j << "] = " << matrix[i][j]
+            std::cout << "m[" << i << ", " << j << "] matrix = " << matrix[i][j]
                       << '\n';
         }
     }
@@ -30,11 +30,25 @@ int main()
 {
     // Exercise 1
 
+using ValueT = double;
+using VectorT = std::vector<ValueT>;
+using MatrixT = std::vector<VectorT>;
+
+
+    auto my_matrix = MatrixT(3, VectorT(4, 0.0));
+    for (std::size_t i = 0; i != my_matrix.size(); ++i)
+    {
+        for (std::size_t j = 0; j != my_matrix[i].size(); ++j)
+        {
+            my_matrix[i][j] =static_cast<double>(i+j);
+
+        }
+    }
     std::cout << "Exercise 1:\n";
-    printMatrix(matrix);
+    printMatrix(my_matrix);
 
     // Exercise 2
-    auto row_max_vec = max_row_values(matrix);
+    auto row_max_vec = max_row_values(my_matrix);
     std::cout << "max_row_values:\n";
     printVector(row_max_vec);
 
